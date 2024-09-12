@@ -5,33 +5,44 @@ import './Home.css';
 
 function Home() {
     const [inputData, setInputData] = useState('');
+    const [message, setMessage] = useState('');
+    const [messageType, setMessageType] = useState('');
 
     const handleChange = (e) => {
         setInputData(e.target.value);
     };
 
-    const handleGenerateSQL = (e) => {
+    const handleGenerateSQL = async (e) => {
         e.preventDefault();
+
+        setTimeout(() => {
+            setMessage('');
+            setMessageType('');
+        }, 3000);
     };
 
     return (
-        <div className="home-container">
-            <h1>SQL Command Generator</h1>
-            <p>Enter your data below to create database in SQL:</p>
-            <form onSubmit={handleGenerateSQL} className="home-form">
-                <Input
-                    type="text"
-                    placeholder="Enter data here..."
-                    value={inputData}
-                    onChange={handleChange}
-                    name="inputData"
-                />
-                <Button onClick={handleGenerateSQL}>Generate SQL</Button>
-            </form>
-            {/* <div className='message success'>
-                hello
-            </div> */}
-        </div>
+        <>
+            {message && (
+                <div className={`message ${messageType}`}>
+                    {message}
+                </div>
+            )}
+            <div className="home-container">
+                <h1>SQL Command Generator</h1>
+                <p>Give a prompt below to create a database in SQL</p>
+                <form onSubmit={handleGenerateSQL} className="home-form">
+                    <Input
+                        type="text"
+                        placeholder="Enter text here..."
+                        value={inputData}
+                        onChange={handleChange}
+                        name="inputData"
+                    />
+                    <Button onClick={handleGenerateSQL}>Generate SQL</Button>
+                </form>
+            </div>
+        </>
     );
 }
 

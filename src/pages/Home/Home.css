@@ -1,6 +1,6 @@
 .home-container {
-    width: 40%;
-    margin: 5em auto;
+    width: 70%;
+    margin: 8em auto;
     padding: 1.5em;
     text-align: center;
     border-radius: 10px;
@@ -8,21 +8,37 @@
 
 .home-container h1,
 .home-container p {
-    margin-bottom: 1.2em;
-    color: #918686;
+    margin: 1em 0;
+    color: #161d27;
+}
+
+.home-container p{
+    font-weight: 500;
 }
 
 .home-form {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+}
+
+.home-form :first-child {
+    width: 73%;
+}
+
+.home-form :nth-child(2) {
+    width: 25%;
 }
 
 .message {
-    margin-top: 1em;
-    padding: 1em;
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    padding: 0.5em 1em;
     border-radius: 5px;
     font-size: 1rem;
+    width: 27%;
 }
 
 .success {
